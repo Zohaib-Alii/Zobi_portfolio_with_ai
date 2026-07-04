@@ -25,7 +25,7 @@ const STATUS_LABEL: Record<OrbStatus, string> = {
 
 // voice-activity tuning
 const SPEECH_LEVEL = 0.14; // normalized level that counts as speech
-const SILENCE_MS = 5000; // pause length that auto-sends
+const SILENCE_MS = 2500; // pause length that auto-sends
 const NO_SPEECH_MS = 8000; // give up if nothing said at all
 const MAX_TURN_MS = 30000; // hard cap per voice turn
 

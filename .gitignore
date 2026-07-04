@@ -29,5 +29,5 @@ next-env.d.ts
 # vercel
 .vercel
 
-#hide claude kkk
+#hide claude k
 claude.md

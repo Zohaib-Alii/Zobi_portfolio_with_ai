@@ -37,7 +37,7 @@ export default function Orb({
       <div
         aria-hidden
         className={`orb-halo absolute inset-0 animate-orb-spin ${
-          status === "thinking" ? "opacity-90" : "opacity-60"
+          status === "thinking" ? "opacity-90" : "opacity-75 dark:opacity-60"
         }`}
         style={{ animationDuration: status === "thinking" ? "1.6s" : "7s" }}
       />

@@ -40,9 +40,9 @@ export default function Contact() {
               href={social.href}
               target={social.href.startsWith("mailto") ? undefined : "_blank"}
               rel="noopener noreferrer"
-              className="glass block p-5 transition-colors hover:border-white/30"
+              className="glass block p-5 transition-colors hover:border-slate-900/30 dark:hover:border-white/30"
             >
-              <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/5 text-zinc-200">
+              <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-slate-900/5 text-slate-700 dark:bg-white/5 dark:text-zinc-200">
                 <svg
                   width="20"
                   height="20"
@@ -56,8 +56,8 @@ export default function Contact() {
                   <path d={social.icon} />
                 </svg>
               </div>
-              <p className="text-sm font-semibold text-white">{social.label}</p>
-              <p className="mt-0.5 truncate text-xs text-zinc-400">
+              <p className="text-sm font-semibold text-slate-900 dark:text-white">{social.label}</p>
+              <p className="mt-0.5 truncate text-xs text-slate-600 dark:text-zinc-400">
                 {social.value}
               </p>
             </a>

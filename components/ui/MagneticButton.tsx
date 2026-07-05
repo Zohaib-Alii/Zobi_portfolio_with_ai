@@ -40,8 +40,8 @@ export default function MagneticButton({
     "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-7 py-3 text-sm font-medium transition-colors";
   const styles =
     variant === "primary"
-      ? "bg-white text-zinc-900 hover:bg-zinc-200"
-      : "border border-white/15 text-zinc-200 hover:border-white/30";
+      ? "bg-slate-900 text-white hover:bg-slate-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
+      : "border border-slate-900/20 text-slate-800 hover:border-slate-900/40 dark:border-white/15 dark:text-zinc-200 dark:hover:border-white/30";
 
   return (
     <motion.a

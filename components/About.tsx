@@ -14,17 +14,19 @@ export default function About() {
 
       <div className="grid gap-10 md:grid-cols-[1.6fr_1fr]">
         <Reveal>
-          <div className="space-y-5 text-zinc-400">
+          <div className="space-y-5 text-slate-600 dark:text-zinc-400">
             <p>
               I&apos;m a full stack &amp; AI engineer based in{" "}
-              <span className="text-zinc-200">Pakistan</span>, with{" "}
-              <span className="text-zinc-200">4 years of experience</span>{" "}
+              <span className="text-slate-900 dark:text-zinc-200">Pakistan</span>, with{" "}
+              <span className="text-slate-900 dark:text-zinc-200">4 years of experience</span>{" "}
               building AI products, SaaS platforms, and web applications end to
               end — AI agents, automations, dashboards, bookings, and payments.
             </p>
             <p>
-              Currently I&apos;m at <span className="text-zinc-200">Meezotech</span>,
-              working remotely on <span className="text-zinc-200">Darent</span> —
+              Currently I&apos;m at{" "}
+              <span className="text-slate-900 dark:text-zinc-200">Meezotech</span>,
+              working remotely on{" "}
+              <span className="text-slate-900 dark:text-zinc-200">Darent</span> —
               an Airbnb-style property rental platform for a Saudi Arabian
               client. Before that, I worked at Atompoint on a U.S. telehealth
               platform and a legal-tech RAG product.
@@ -40,8 +42,8 @@ export default function About() {
           {stats.map((stat, i) => (
             <Reveal key={stat.label} delay={0.1 * i}>
               <div className="glass p-5 text-center md:text-left">
-                <p className="text-3xl font-bold text-white">{stat.value}</p>
-                <p className="mt-1 text-xs text-zinc-400 md:text-sm">
+                <p className="text-3xl font-bold text-slate-900 dark:text-white">{stat.value}</p>
+                <p className="mt-1 text-xs text-slate-600 dark:text-zinc-400 md:text-sm">
                   {stat.label}
                 </p>
               </div>

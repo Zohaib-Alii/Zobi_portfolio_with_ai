@@ -357,7 +357,7 @@ export default function AIConsole() {
         >
           <Orb status={status} level={level} size={132} />
         </button>
-        <p className="mt-3 font-mono text-xs text-zinc-500">
+        <p className="mt-3 font-mono text-xs text-slate-500 dark:text-zinc-500">
           {STATUS_LABEL[status]}
         </p>
         {/* mode toggles */}
@@ -368,8 +368,8 @@ export default function AIConsole() {
             aria-pressed={autoMode}
             className={`inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[11px] transition-colors ${
               autoMode
-                ? "border-accent-violet/60 bg-accent-violet/10 text-zinc-200"
-                : "border-white/10 text-zinc-500 hover:border-white/25 hover:text-zinc-300"
+                ? "border-accent-violet/60 bg-accent-violet/10 text-slate-800 dark:text-zinc-200"
+                : "border-slate-900/10 text-slate-500 hover:border-slate-900/25 hover:text-slate-700 dark:border-white/10 dark:text-zinc-500 dark:hover:border-white/25 dark:hover:text-zinc-300"
             }`}
           >
             <span
@@ -386,8 +386,8 @@ export default function AIConsole() {
             aria-pressed={voiceReplies}
             className={`inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[11px] transition-colors ${
               voiceReplies
-                ? "border-accent-cyan/60 bg-accent-cyan/10 text-zinc-200"
-                : "border-white/10 text-zinc-500 hover:border-white/25 hover:text-zinc-300"
+                ? "border-accent-cyan/60 bg-accent-cyan/10 text-slate-800 dark:text-zinc-200"
+                : "border-slate-900/10 text-slate-500 hover:border-slate-900/25 hover:text-slate-700 dark:border-white/10 dark:text-zinc-500 dark:hover:border-white/25 dark:hover:text-zinc-300"
             }`}
           >
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
@@ -420,8 +420,8 @@ export default function AIConsole() {
                   <div
                     className={`max-w-[85%] whitespace-pre-wrap rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
                       msg.role === "user"
-                        ? "rounded-br-md bg-white text-zinc-900"
-                        : "rounded-bl-md bg-white/[0.06] text-zinc-200"
+                        ? "rounded-br-md bg-slate-900 text-white dark:bg-white dark:text-zinc-900"
+                        : "rounded-bl-md bg-slate-900/[0.06] text-slate-800 dark:bg-white/[0.06] dark:text-zinc-200"
                     }`}
                   >
                     {msg.role === "assistant" && i === lastAssistantIndex ? (
@@ -434,7 +434,7 @@ export default function AIConsole() {
               ))}
               {status === "thinking" && (
                 <div className="flex justify-start">
-                  <div className="flex gap-1.5 rounded-2xl rounded-bl-md bg-white/[0.06] px-4 py-3">
+                  <div className="flex gap-1.5 rounded-2xl rounded-bl-md bg-slate-900/[0.06] px-4 py-3 dark:bg-white/[0.06]">
                     {[0, 1, 2].map((d) => (
                       <motion.span
                         key={d}
@@ -454,7 +454,7 @@ export default function AIConsole() {
       {/* input bar */}
       <form
         onSubmit={handleSubmit}
-        className="flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] p-2 pl-5 backdrop-blur-md transition-colors focus-within:border-accent-violet/60"
+        className="flex items-center gap-2 rounded-full border border-slate-900/15 bg-white/70 p-2 pl-5 backdrop-blur-md transition-colors focus-within:border-accent-violet/60 dark:border-white/15 dark:bg-white/[0.04]"
       >
         <input
           ref={inputRef}
@@ -462,7 +462,7 @@ export default function AIConsole() {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask my AI anything about my work…"
           aria-label="Ask the AI assistant"
-          className="flex-1 bg-transparent text-sm text-white placeholder-zinc-500 outline-none"
+          className="flex-1 bg-transparent text-sm text-slate-900 placeholder-slate-400 outline-none dark:text-white dark:placeholder-zinc-500"
         />
         <button
           type="button"
@@ -471,7 +471,7 @@ export default function AIConsole() {
           className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-colors ${
             status === "listening"
               ? "border-accent-magenta bg-accent-magenta/20 text-accent-magenta"
-              : "border-white/15 text-zinc-300 hover:border-white/40"
+              : "border-slate-900/15 text-slate-700 hover:border-slate-900/40 dark:border-white/15 dark:text-zinc-300 dark:hover:border-white/40"
           }`}
         >
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -483,7 +483,7 @@ export default function AIConsole() {
           type="submit"
           disabled={status === "thinking" || !input.trim()}
           aria-label="Send message"
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-zinc-900 transition-opacity disabled:opacity-40"
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-900 text-white transition-opacity disabled:opacity-40 dark:bg-white dark:text-zinc-900"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M12 19V5M5 12l7-7 7 7" />
@@ -499,7 +499,7 @@ export default function AIConsole() {
               key={s}
               type="button"
               onClick={() => sendRef.current(s, false)}
-              className="rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-xs text-zinc-400 transition-colors hover:border-white/30 hover:text-white"
+              className="rounded-full border border-slate-900/10 bg-white/60 px-3.5 py-1.5 text-xs text-slate-600 transition-colors hover:border-slate-900/30 hover:text-slate-900 dark:border-white/10 dark:bg-white/[0.03] dark:text-zinc-400 dark:hover:border-white/30 dark:hover:text-white"
             >
               {s}
             </button>

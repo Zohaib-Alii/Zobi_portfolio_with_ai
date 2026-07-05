@@ -54,7 +54,7 @@ export default function MarqueeStrip({
         {[0, 1, 2, 3].map((i) => (
           <span
             key={i}
-            className="pr-8 font-mono text-6xl font-bold uppercase tracking-tight text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.13)] md:text-8xl"
+            className="marquee-text pr-8 font-mono text-6xl font-bold uppercase tracking-tight md:text-8xl"
           >
             {text} ·
           </span>

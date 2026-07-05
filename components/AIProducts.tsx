@@ -45,7 +45,7 @@ export default function AIProducts() {
           {capabilities.map((cap, i) => (
             <Reveal key={cap.title} delay={0.1 * i}>
               <div className="glass h-full p-6">
-                <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-accent-violet">
+                <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-900/10 bg-white/60 text-accent-violet dark:border-white/10 dark:bg-white/[0.04]">
                   <svg
                     width="22"
                     height="22"
@@ -59,8 +59,8 @@ export default function AIProducts() {
                     <path d={cap.icon} />
                   </svg>
                 </div>
-                <h3 className="mb-2 font-semibold text-white">{cap.title}</h3>
-                <p className="text-sm leading-relaxed text-zinc-400">
+                <h3 className="mb-2 font-semibold text-slate-900 dark:text-white">{cap.title}</h3>
+                <p className="text-sm leading-relaxed text-slate-600 dark:text-zinc-400">
                   {cap.description}
                 </p>
               </div>
@@ -70,11 +70,11 @@ export default function AIProducts() {
 
         <Reveal>
           <div className="glass flex flex-wrap items-center justify-center gap-x-8 gap-y-3 px-6 py-5">
-            <span className="font-mono text-xs uppercase tracking-widest text-zinc-500">
+            <span className="font-mono text-xs uppercase tracking-widest text-slate-500 dark:text-zinc-500">
               Shipped
             </span>
             {aiProjects.map((p) => (
-              <span key={p.title} className="text-sm font-medium text-zinc-300">
+              <span key={p.title} className="text-sm font-medium text-slate-700 dark:text-zinc-300">
                 {p.title}
               </span>
             ))}

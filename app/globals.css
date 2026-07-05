@@ -2,12 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/* light = Cool Frost (#eef0f4), dark = near-black — toggled via .dark on <html> */
 :root {
+  color-scheme: light;
+}
+.dark {
   color-scheme: dark;
 }
 
 body {
-  @apply bg-background text-zinc-300 antialiased;
+  @apply text-slate-700 antialiased dark:text-zinc-300;
+  background-color: #edf0f5;
+  /* soft AI-tinted washes so light mode isn't flat */
+  background-image:
+    radial-gradient(55% 38% at 50% 0%, rgba(139, 92, 246, 0.08), transparent 65%),
+    radial-gradient(45% 32% at 88% 22%, rgba(34, 211, 238, 0.07), transparent 60%),
+    radial-gradient(45% 32% at 8% 55%, rgba(232, 121, 249, 0.05), transparent 60%);
+}
+.dark body {
+  background-color: #060608;
+  background-image: none;
 }
 
 /* Lenis smooth-scroll integration */
@@ -23,47 +37,66 @@ html.lenis body {
 }
 
 ::selection {
-  background: rgba(139, 92, 246, 0.4);
+  background: rgba(139, 92, 246, 0.35);
 }
 
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #060608;
+  background: #eef0f4;
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #c7cdd8;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
+  background: #aab2c0;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #060608;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #27272a;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
   background: #3f3f46;
 }
 
 @layer components {
+  /* frosted card — layered depth in light, glass in dark */
   .glass {
-    @apply rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md;
+    @apply rounded-2xl border border-slate-900/[0.08] bg-white/80 shadow-[0_1px_2px_rgba(30,41,59,0.05),0_8px_30px_rgba(30,41,59,0.09)] backdrop-blur-md transition-shadow duration-300 hover:shadow-[0_2px_4px_rgba(30,41,59,0.06),0_14px_44px_rgba(30,41,59,0.13)] dark:border-white/10 dark:bg-white/[0.03] dark:shadow-none dark:hover:shadow-none;
   }
 
-  /* iridescent text — AI elements only */
+  /* iridescent text — AI elements only; deeper stops in light for contrast */
   .ai-text {
-    @apply bg-ai-gradient bg-clip-text text-transparent;
+    background-image: linear-gradient(120deg, #0e7490 0%, #7c3aed 50%, #c026d3 100%);
+    @apply bg-clip-text text-transparent;
+  }
+  .dark .ai-text {
+    background-image: linear-gradient(120deg, #22d3ee 0%, #8b5cf6 50%, #e879f9 100%);
   }
 
   .bg-grid {
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      linear-gradient(rgba(15, 23, 42, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 23, 42, 0.055) 1px, transparent 1px);
     background-size: 56px 56px;
     mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
     -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
+  }
+  .dark .bg-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   }
 
   .bg-noise {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
   }
 
-  /* the AI orb — blurred iridescent halo behind a glassy core */
+  /* the AI orb — identical in both modes (the AI's identity never changes) */
   .orb-halo {
     background: conic-gradient(
       from 180deg,
@@ -82,6 +115,15 @@ html.lenis body {
       radial-gradient(circle at 30% 70%, rgba(34, 211, 238, 0.55), transparent 55%),
       rgba(10, 10, 16, 0.6);
     @apply rounded-full border border-white/20 backdrop-blur-sm;
+  }
+
+  /* giant outline text for marquee strips */
+  .marquee-text {
+    -webkit-text-stroke: 1px rgba(15, 23, 42, 0.18);
+    color: transparent;
+  }
+  .dark .marquee-text {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.13);
   }
 
   .marquee-mask {
